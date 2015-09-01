@@ -150,11 +150,11 @@ _Tendo isto em mente, podemos passar uma função como parâmetro para outra e, 
 
 ```javascript
 function helloSomething(hello, callback) {
-    callback (hello); //chama a função de callback
+    callback(hello); //chama a função de callback
 }
 
 helloSomething('Hello', function(msg) {
-	console.log(msg + " " +'world');
+	console.log(msg + " " +'world'); //irá imprimir 'Hello world'
 });
 ```
 _Como uma boa prática de programação, é sempre bom garantir que a função de callback seja realmente uma função_
@@ -167,7 +167,7 @@ function helloSomething(hello, callback) {
 }
 	
 helloSomething('Hello', function(msg) {
-	console.log(msg + " " +'world');
+	console.log(msg + " " +'world'); //irá imprimir 'Hello world'
 });
 ```
 _Podemos criar callbacks distintos para diversos tratamentos_
