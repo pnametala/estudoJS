@@ -4,7 +4,7 @@ A ementa sugere conhecimentos básicos da linguagem Javascript para que, a parti
 
 Todos os códigos podem ser testados no [JSFiddle](https://jsfiddle.net/)
 
-* [Interação JS/HTML](#interacao-jshtml)
+* [Interação JS/HTML](#interação-jshtml)
 	* ToDo
 
 * [Conceitos JS](#conceitos-js)
@@ -16,7 +16,7 @@ Todos os códigos podem ser testados no [JSFiddle](https://jsfiddle.net/)
   * [this](#this)  
   * [JSON](#json)
   * [Estendendo objetos próprios](#estendendo-objetos-próprios)
-  * [Estendendo objetos core JS](#estendendo-objetos-core-js)
+  * [Estendendo objetos core do JS](#estendendo-objetos-core-do-js)
 
 * [JQuery](#jquery)
 	* ToDo
