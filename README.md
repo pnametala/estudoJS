@@ -14,6 +14,6 @@ A ementa sugere conhecimentos básicos da linguagem Javascript para que, a parti
   
 _Todos os códigos aqui exemplificados podem ser testados no [JSFiddle](https://jsfiddle.net/)_
 
-* [Conceitos JS](https://github.com/pnametala/estudoJS/tree/master/conceitos#escopo-de-vari%C3%A1veis)
+* [Conceitos Importantes](https://github.com/pnametala/estudoJS/tree/master/conceitos#escopo-de-vari%C3%A1veis)
 * [JQuery](https://github.com/pnametala/estudoJS/tree/master/jquery)
 * [AngularJS](https://github.com/pnametala/estudoJS/tree/master/angularJS)
