@@ -123,7 +123,7 @@ _Closure é uma função interna, que tem acesso às variáveis externas de sua 
 _Em resumo, uma Closure tem acesso às suas variáveis locais, às variáveis da função que a engloba e acesso às variáveis globais_
 
 _Mas afinal, como funciona a Closure?_
-
+ace
 ```javascript
 function outerFunction(param1, param2) {
 	var txt = 'Testando';
@@ -631,7 +631,7 @@ async().then(function(data) {
 	console.log(error);
 });
 ```
-_O then() aceita dois paâmetros para sua execução: success e error. Ao invés de usarmos o catch, poderíamos escrever da seguinte maneira:_
+_O then() aceita dois parâmetros para sua execução: success e error. Ao invés de usarmos o catch, poderíamos escrever da seguinte maneira:_
 
 ```javascript
 var async = function() {
