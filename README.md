@@ -28,6 +28,8 @@ Todos os códigos podem ser testados no [JSFiddle](https://jsfiddle.net/)
   * [JSON](#json)
   * [Estendendo objetos próprios](#estendendo-objetos-próprios)
   * [Estendendo objetos core do JS](#estendendo-objetos-core-do-js)
+  * [AJAX](#ajax)
+  * [Promises](#promises)
 
 * [JQuery](#jquery)
 	* ToDo
@@ -500,10 +502,160 @@ list.bubbleSort();
 console.log(list); //[1, 2, 3, 4, 5 ,6, 7]
 ```
 
+#### AJAX
+
+_AJAX é um acrônimo para Asynchronous Javascript and XML. Como o nome diz, é o responsável por fazer requisições assíncronas no Javascript, possibilitando uma gama de possibilidades e interatividade com o usuário_
+
+_Diversos plugins e frameworks facilitam a utilização desta tecnologia, mas veremos aqui um pouco do código bruto_
+
+_Existem diversos tipos de requisições que podem ser feitas ao servidor, mas as  mais comuns são GET e POST. Este [link](http://www.w3schools.com/tags/ref_httpmethods.asp) explica suas diferenças e, de quebra, ainda mostra os demais tipos de requisição (e especificações de uso)_
+
+_Para os exemplos assíncronos, irei utilizar o [RandomUser.me](https://randomuser.me/), um site que aceita requisições do tipo GET e POST para retornar JSON de teste_
+
+```javascript
+function ajaxCall() {
+	var xmlhttp;
+    if (window.XMLHttpRequest) {
+  		//IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+  	} else {
+    	//IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.onreadystatechange = function() {
+        //state 4 significa completado e http 200, OK
+  		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    		console.log(xmlhttp.responseText); //iremos logar os dados do usuário
+    	}
+  	}
+	xmlhttp.open("GET","https://randomuser.me/api/",true);
+	xmlhttp.send();
+}
+
+ajaxCall(); //chamada da função
+```
+
+_A maioria dos plugins e frameworks JS possuem um método simplificado para criar estas chamadas_
+
+#### Promises
+_Promise é um Objeto do JS, responsável pelo tratamento de processos assíncronos e demorados. AJAX utiliza promises para sua resolução_
+
+_Podemos englobar trechos de códigos complexos, para que eles sejam processados de forma assíncrona, não impactando no fluxo restante da aplicação_
+
+_A Promise possui dois parâmetros: resolve e reject. O primeiro argumento conclui a promise, o segundo argumento rejeita. Nós podemos chamar estas funções, somente após o fluxo de código estar completo_
+
+```javascript
+var async = function() {
+	//criamos a promisse
+    return new Promise(function(resolve, reject) {
+    	window.setTimeout(
+        	function() {
+          	//após 3 segundos, resolvemos a promise
+          	resolve();
+        }, 3000);
+	});
+};
+
+async().then(function() {
+  console.log('3 segundos se passaram');
+});
+```
+_Podemos passar um parâmetro, tanto para resolve, quanto para reject, para retornarmos algum dado após o processamento assíncrono_
+
+```javascript
+var async = function() {
+    return new Promise(function(resolve, reject) {
+        var asyncTime = 3000;
+        window.setTimeout(
+        function() {
+          // We fulfill the promise !
+          resolve(asyncTime)
+        }, asyncTime);
+  	});
+};
+
+async().then(function(data) {
+    console.log((data/1000) + ' segundos se passaram');
+});
+```
+
+_Agora, analise este caso:_
+
+```javascript
+var async = function() {
+    return new Promise(function(resolve, reject) {
+        var asyncTime = 3000;
+        window.setTimeout(
+        function() {
+          resolve(x+2)
+        }, asyncTime);
+  	});
+};
+
+async().then(function(data) {
+    console.log('Output: ' + data);
+});
+```
+
+_Um erro foi retornado no console, pois x não está definido. Como tratar este erro?_
+
+```javascript
+var async = function() {
+    return new Promise(function(resolve, reject) {
+        resolve(x+2);
+  	});
+};
+
+async().then(function(data) {
+    console.log('Output: ' + data);
+}).catch(function(error) {
+	console.log(error); //irá imprimir o erro do interpretador
+});
+```
+_Podemos personalizar o reject_
+
+```javascript
+var async = function() {
+    return new Promise(function(resolve, reject) {
+        try {
+        	resolve(x+2);
+        } catch(e) {
+        	reject('x não está definido');
+        }
+  	});
+};
+
+async().then(function(data) {
+    console.log('Output: ' + data);
+}).catch(function(error) {
+	console.log(error);
+});
+```
+_O then() aceita dois paâmetros para sua execução: success e error. Ao invés de usarmos o catch, poderíamos escrever da seguinte maneira:_
+
+```javascript
+var async = function() {
+    return new Promise(function(resolve, reject) {
+        try {
+        	resolve(x+2);
+        } catch(e) {
+        	reject('x não está definido');
+        }
+  	});
+};
+
+async().then(function(data) {
+    console.log('Output: ' + data);
+}, function (error) { 
+	console.log(error);
+});
+```
+_Cada vez mais, o objeto Promise vem ganhando visibilidade, devido a sua capacidade de englobar blocos de código assincronamente, evitando assim a pausa no fluxo de execução do restante da aplicação_
+
 #### JQuery
-ToDo
+TODO
 
 
 #### AngularJS
-ToDo
+TODO
 
