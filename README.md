@@ -12,7 +12,7 @@ A ementa sugere conhecimentos básicos da linguagem Javascript para que, a parti
   * [Async & Performance](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance)
   * [ES6 & Beyond](https://github.com/getify/You-Dont-Know-JS/blob/master/es6%20&%20beyond/README.md#you-dont-know-js-es6--beyond)
   
-Todos os códigos podem ser testados no [JSFiddle](https://jsfiddle.net/)
+_Todos os códigos aqui exemplificados podem ser testados no [JSFiddle](https://jsfiddle.net/)_
 
 * [Conceitos JS](https://github.com/pnametala/estudoJS/tree/master/conceitos#escopo-de-vari%C3%A1veis)
 * [JQuery](https://github.com/pnametala/estudoJS/tree/master/jquery)
