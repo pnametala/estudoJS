@@ -538,7 +538,7 @@ ajaxCall(); //chamada da função
 _A maioria dos plugins e frameworks JS possuem um método simplificado para criar estas chamadas_
 
 #### Promises
-_Promise é um Objeto do JS, responsável pelo tratamento de processos assíncronos e demorados. AJAX utiliza promises para sua resolução_
+_Promise é um Objeto do JS, responsável pelo tratamento de processos assíncronos e demorados_
 
 _Podemos englobar trechos de códigos complexos, para que eles sejam processados de forma assíncrona, não impactando no fluxo restante da aplicação_
 
@@ -652,6 +652,42 @@ async().then(function(data) {
 ```
 _Cada vez mais, o objeto Promise vem ganhando visibilidade, devido a sua capacidade de englobar blocos de código assincronamente, evitando assim a pausa no fluxo de execução do restante da aplicação_
 
+_Com isto, podemos transformar uma simples requisição AJAX em uma requisição com maior controle, utilizando Promise_
+
+```javascript
+function ajaxCall() {
+    return new Promise(function(resolve, reject){
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            //IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        } else {
+            //IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.open("GET","https://randomuser.me/api/",true);
+        xmlhttp.send();
+        xmlhttp.onload = function () {
+          if (xmlhttp.status == 200) {
+            resolve(xmlhttp.responseText);
+          } else {         
+            reject(this.statusText);
+          }
+        };
+        xmlhttp.onerror = function () {
+          reject(this.statusText);
+        };
+    });
+}
+
+var p = ajaxCall(); //chamada da função
+
+p.then(function(data) {
+	console.log(data);
+}, function(error){
+	console.log(error);
+});
+```
 #### JQuery
 TODO
 
