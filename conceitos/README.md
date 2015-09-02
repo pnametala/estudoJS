@@ -1,4 +1,4 @@
-# Conceitos
+# Conceitos Importantes
 
 * [Function](#function)
 * [Escopo de variáveis](#escopo-de-variáveis)
