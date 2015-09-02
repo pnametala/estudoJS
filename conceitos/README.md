@@ -643,11 +643,11 @@ function ajaxCall() {
           if (xmlhttp.status == 200) {
             resolve(xmlhttp.responseText);
           } else {         
-            reject(this.statusText);
+            reject(xmlhttp.statusText);
           }
         };
         xmlhttp.onerror = function () {
-          reject(this.statusText);
+          reject(xmlhttp.statusText);
         };
     });
 }
