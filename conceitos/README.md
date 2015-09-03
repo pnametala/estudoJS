@@ -9,6 +9,7 @@
 * [JSON](#json)
 * [Estendendo objetos próprios](#estendendo-objetos-próprios)
 * [Estendendo objetos core do JS](#estendendo-objetos-core-do-js)
+* [Fluent Interface](#fluent-interface)
 * [AJAX](#ajax)
 * [Promises](#promises)
 
@@ -472,6 +473,52 @@ var list = [1, 4, 2, 7, 3, 6, 5];
 console.log(list); //[1, 4, 2, 7, 3, 6, 5]
 list.bubbleSort();
 console.log(list); //[1, 2, 3, 4, 5 ,6, 7]
+```
+
+#### Fluent Interface
+_[Fluent Interface](https://en.wikipedia.org/wiki/Fluent_interface) é uma implementação comum às linguagens Orientadas a Objetos. Provavelmente você já utilizou diverssas vezes, mas não sabia seu nome_
+
+_Esta prática consiste em criar códigos mais legíveis, encadeando chamadas de métodos de uma mesma intância_
+
+```javascript
+var obj = {
+	foo: function () {
+    	console.log('foo');
+        return this;
+    },
+    bar: function () {
+    	console.log('bar');
+        return this;
+    },
+};
+
+obj.foo()
+    .bar(); //irá imprimir 'foo' e 'bar'
+```
+
+_Para uma melhor estruturação do código, podemos utilizar o prototype dos objetos para criar estas funções_
+
+```javascript
+function Pessoa() {
+}
+
+Pessoa.prototype.setNome = function(nome) {
+	this.nome = nome;
+    return this;
+}
+Pessoa.prototype.setSobrenome = function(sobrenome) {
+	this.sobrenome = sobrenome;
+    return this;
+}
+Pessoa.prototype.getNome = function() {
+	console.log(this.nome + " " + this.sobrenome)
+    return this;
+}
+
+new Pessoa()
+    .setNome('Pedro')
+    .setSobrenome('Nametala')
+    .getNome();
 ```
 
 #### AJAX
