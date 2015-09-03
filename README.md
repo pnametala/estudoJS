@@ -13,7 +13,7 @@ A ementa sugere conhecimentos básicos de programação e da linguagem Javascrip
 
 _Todos os códigos aqui exemplificados podem ser testados no [JSFiddle](https://jsfiddle.net/)_
 
-* [Conceitos Importantes](https://github.com/pnametala/estudoJS/tree/master/conceitos#escopo-de-vari%C3%A1veis)
+* [Conceitos Importantes](https://github.com/pnametala/estudoJS/tree/master/conceitos)
 * [JQuery](https://github.com/pnametala/estudoJS/tree/master/jquery)
 * [AngularJS](https://github.com/pnametala/estudoJS/tree/master/angularJS)
 
