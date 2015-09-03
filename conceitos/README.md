@@ -96,7 +96,7 @@ _Closure é uma função interna, que tem acesso às variáveis externas de sua 
 _Em resumo, uma Closure tem acesso às suas variáveis locais, às variáveis da função que a engloba e acesso às variáveis globais_
 
 _Mas afinal, como funciona a Closure?_
-ace
+
 ```javascript
 function outerFunction(param1, param2) {
 	var txt = 'Testando';
