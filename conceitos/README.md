@@ -212,7 +212,7 @@ soma(a, 'teste', success, error); //irá  imprimir 'Erro: Não foi possível obt
 _Funções de Callback também são derivadas do paradigma da [programação funcional](https://en.wikipedia.org/wiki/Functional_programming)_
 
 #### Objetos
-_O tipo mais comum do Javscript é o Object. Javascript possui apenas um tipo complexo, que é o Object e cinco tipos simples, que são Number, String, Boolean, Undefined e Null_
+_O tipo mais comum do Javascript é o Object. Javascript possui apenas um tipo complexo, que é o Object e cinco tipos simples, que são Number, String, Boolean, Undefined e Null_
 
 _Tipos simples (primitivos), são imutáveis, enquanto o tipo Object é mutável_
 ```javascript
@@ -265,7 +265,7 @@ console.log(op.subtracao(2,3)); //irá imprimir '-1'
 ```
 
 #### this
-_Todas as funções em Javscript possuem propriedades (pois são objetos). Quando uma função é executada, esta pega a propriedade this (this é uma variável com com o valueOf do objeto que invocou a função onde o this está sendo utilizado_
+_Todas as funções em Javascript possuem propriedades (pois são objetos). Quando uma função é executada, esta pega a propriedade this (this é uma variável com com o valueOf do objeto que invocou a função onde o this está sendo utilizado_
 
 ```javascript
 var op = new Object();
@@ -291,7 +291,7 @@ function operador(a, b) {
 var op = operador(2,3);
 console.log(op()); // irá  imprimir '5'
 ```
-_Relembrando que Cloures tem acesso ao escopo da função exterior_
+_Relembrando que Closures tem acesso ao escopo da função exterior_
 
 _Usando construtores:_
 
@@ -359,7 +359,7 @@ var numbers = new Numbers();
 console.log(numbers.getMultiple(2)); //irá imprimir [2, 4, 6, 8]
 ```
 
-_O retorno da função está com this.list pois, em Javascript, copiamos um objeto como referência (lembra-se de ponteiros?)_
+_O retorno da função está com this.mList pois, em Javascript, copiamos um objeto como referência (lembra-se de ponteiros?)_
 
 #### JSON
 
