@@ -2,6 +2,7 @@
 
 * [Function](#function)
 * [Escopo de variáveis](#escopo-de-variáveis)
+* [Hoisting](#hoisting)
 * [Closures](#closures)
 * [Callbacks](#callbacks)
 * [Objetos](#objetos)
@@ -12,6 +13,10 @@
 * [Fluent Interface](#fluent-interface)
 * [AJAX](#ajax)
 * [Promises](#promises)
+* [Programação funcional](#programação-funcional)
+	* [Programação Imperativa X Programação Funcional](#programação-imperativa-x-programação-funcional)
+	* [Memoization](#memoization)
+	* [Libs Funcionais](#libs-funcionais)
 
 #### Conceitos JS
 _Antes de entrarmos em plugins e frameworks JS, seria interessante saber o que a linguagem em questão nos proporciona_  
@@ -89,6 +94,22 @@ _Podemos assim, forçar escopos isolados, utilizando funções anônimas_
 _Variáveis locais possuem prioridade sobre variáveis globais_
 
 _Caso uma variável seja incializada sem declaração, ela será considerada uma variável global_
+
+#### Hoisting
+
+_Em Javascript, Hoisting é uma etapa da interpretação, onde todas as funções declaradas são lidas prioritariamente_
+
+_Por padrão, a etapa de Hoisting move todas as declarações para o topo do escopo atual (script ou função)_
+
+_Na prática, podemos chamar uma função antes mesmo de declará-la_
+
+```javascript
+console.log(hoisting());
+
+function hoisting() {
+	return 'função declarada depois';
+}
+```
 
 #### Closures
 _Closure é uma função interna, que tem acesso às variáveis externas de sua função exterior_
@@ -707,3 +728,145 @@ p.then(function(data) {
 	console.log(error);
 });
 ```
+
+#### Programação funcional
+_[Programação funcional](https://en.wikipedia.org/wiki/Functional_programming) é um paradigma de computação utilizado há muito tempo na Computação científica (estudos e pesquisas), porém pouco difundido fora deste meio_
+
+_Este consiste em considerar função como expressões matemáticas e evitar mudanças de estado e dados mutáveis_
+
+_Considere a seguinte expressão matemática:_
+
+```Math
+y = x + 2
+```
+_Após assimilarmos este paradigma, nos apresentam a mesma função de outra maneira:_
+
+```Math
+f(x) = x + 2
+```
+
+_Assim, nos introduzem o conceito e função, variáveis relativas (y/f(x) é relativo a x)_
+
+_A primeira maneira de validaramos isto, é montando a tabela de valores:_
+
+
+| x | f(x) = x + 2  |   f(x)   |
+|:-:|:-------------:|:--------:|
+| 0 |  f(0) = 0 + 2 | f(0) = 2 |
+| 1 |  f(1) = 1 + 2 | f(1) = 3 |
+| 2 |  f(2) = 2 + 2 | f(2) = 4 |
+| 3 |  f(3) = 3 + 2 | f(3) = 5 |
+
+_Como transformar isto numa função?_
+
+```javascript
+function f(x) {
+	return x + 2;
+}
+
+console.log(f(0));
+console.log(f(1));
+console.log(f(2));
+console.log(f(3));
+```
+
+##### Programação Imperativa X Programação Funcional
+
+_A programação clássica é imperativa. Consiste em verificação  de estados e iterações sobre elementos, desviando fluxos e usando condicionais para tomadas de decisões_
+
+_A programação funcional evita ao máximo o uso dessas técnicas, escrevendo um código mais elegante e otimizado_
+
+_No Javascript, como auxílio de First-class functions, funções anônimas e closures, escrever funcionalmente se torna um pouco menos complicado_
+
+_Vamos escrever uma função para calcular a sequencia Fibonacci_:
+
+```javascript
+var fibonacci = function(n) {
+    var a = 0, b = 1, f = 1;
+    for(var i = 2; i <= n; i++) {
+        f = a + b;
+        a = b;
+        b = f;
+    }
+    return f;
+};
+
+console.log(fibonacci(6)); //8
+```
+
+_Muitas vezes, aprendemos a escrever este mesmo algoritmo, através do conceito de [Recursividade](https://en.wikipedia.org/wiki/Recursion_(computer_science))_
+
+```javascript
+var recursiveFibonacci = function(n) {
+    if(n <= 2) {
+        return 1;
+    } else {
+        return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
+    }
+};
+
+console.log(recursiveFibonacci(6)); //8
+```
+
+_Chamadas recursivas consistem em utilizar a própria função novamente, para efetuar o cálculo. Ao invés de usarmos condicionais e loops para chegar ao nosso resultado, condicionamos o cálculo a uma expressão funcional (ou seja, já  utilizamos a programação funcional no nosso dia  a dia, muitas vezes sem saber)_
+
+_Vamos reescrever f(x) = x + 2 de forma recursiva:_
+
+```javascript
+var recursiveF = function(n) {
+	if(n <= 0) {
+    	return 2;
+    }
+    return recursiveF(n-1) + 1;
+}
+
+console.log(recursiveF(0)); //2
+console.log(recursiveF(1)); //3
+console.log(recursiveF(2)); //4
+console.log(recursiveF(3)); //5
+```
+
+##### Memoization
+
+_Memoization é uma técnica computacional de otimização, que consiste em cachear informações de resultados (complexos ou de acesso constante), para alcançar uma performance maior nos algoritmos_
+
+_Reescrevendo a função f(x) = x + 2, utilizando recursividade e memoization, chegamos ao seguinte algoritmo_
+
+```javascript
+var recursiveF = function(n) {
+	if(n <= 0) {
+    	return recursiveF.memoize[n] = 2;
+    }
+    return recursiveF.memoize[n] = recursiveF.memoize[n - 1] + 1 || recursiveF(n-1);  
+}
+recursiveF.memoize = {};
+
+console.log(recursiveF(0)); //2
+console.log(recursiveF(1)); //3
+console.log(recursiveF(2)); //4
+console.log(recursiveF(3)); //5
+```
+
+##### Libs Funcionais
+
+_Exitem diversas libs js para o auxílio na criação de estruturas funcionais. As duas mais conhecidas são [Underscore.js](http://underscorejs.org/) e [Lodash](https://lodash.com/)_
+
+_Este exemplo, unsando UnderscoreJS, pode ser rodado neste [Fiddle](https://jsfiddle.net/vys01LkL/)_
+
+```javascript
+var list = [1 , 2, 3, 4, 5];
+
+
+function multiple(n) { 
+	function get(x) {
+    	return x*n;
+    }
+    return get;
+};
+
+var mul = multiple(2); //primeiro argumento passado, fazendo a multiplicação dos itens ser por 2
+
+console.log(_.map(list,mul)); //função map do underscore, que percorerá lista, e chamará uma função para ser executada para cada elemento, imprimindo [2, 4, 6, 8, 10]
+```
+
+
