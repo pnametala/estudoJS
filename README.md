@@ -1,6 +1,6 @@
 # Sobre este Repositório
 
-Muitas vezes temos a necessidade de saber 'como se faz', mas sem valorizar o real aprendizado e o ganho que isso representa para nós, como desenvolvedores. 'Como se faz' irá te levar a resolver o problema pontual, sem agregar o devido conhecimento (copy/paste da solução encontrada) e, entender, absorver e praticar os conceitos, acabam ficando em segundo plano, nos tornando cada vez mais dependentes da internet para encontrar a solução do problema representado.
+Muitas vezes temos a necessidade de saber 'como se faz', mas sem valorizar o real aprendizado e o ganho que isso representa para nós, como desenvolvedores. 'Como se faz' irá te levar a resolver o problema pontual (copy/paste da solução encontrada), sem agregar o devido conhecimento e, entender, absorver e praticar os conceitos, acabam ficando em segundo plano, nos tornando cada vez mais dependentes da internet para encontrar a solução do problema representado.
 
 Ter os conceitos da linguagem a ser utilizada e, sabendo assim o poder dela, nos torna mais eficientes, sabendo escolher o menor e mais eficiente caminho para atingir o objetivo proposto.
 
