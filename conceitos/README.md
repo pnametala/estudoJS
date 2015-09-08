@@ -1,6 +1,7 @@
 # Conceitos Importantes
 
-* [Function](#function)
+* [Premissas Básicas](#premissas-básicas)
+* [Função Anônima](#função-anônima)
 * [Escopo de variáveis](#escopo-de-variáveis)
 * [Hoisting](#hoisting)
 * [Closures](#closures)
@@ -18,26 +19,25 @@
 	* [Memoization](#memoization)
 	* [Libs Funcionais](#libs-funcionais)
 
-#### Conceitos JS
+#### Premissas Básicas
 _Antes de entrarmos em plugins e frameworks JS, seria interessante saber o que a linguagem em questão nos proporciona_  
 
-_Neste tópico, iremos demonstrar alguns conceitos desejáveis para o melhor entendimento dos frameworks JS_
+_Para melhor absorção dos conteúdos aqui apresentados, é aconselhável que se tenha um breve conhecimento de programação e, preferencialmente, conhecimento básico/intermediário de Javascript, para que os conceitos aqui vistos possam ser levados adiante_
 
-#### Function
-_Declaração de uma função em Javascript_
+#### Função Anônima
+_Funções anônimas são funcões sem nome. Utilizamos muito as funções anônimas como callback em outras chamadas, para executar um bloco de códigos após determinada ação_
 
 ```javascript
-function nomeDaFuncao(parametros) {
-	//todo
-}
+(function () {
+   console.log('startei');   
+});
 ```
-_Função soma em Javascript_
+_Uma função, além de anônima, pode ser o que chamamos de self-invoking (ou seja, ela será executada automaticamente). basta adicionar () ao final dela:_
 
 ```javascript
-function soma(a, b) {
-	return a + b;
-}
-console.log(soma(1,2)) //output = 3
+(function () {
+   console.log('startei');   
+})();
 ```
 
 #### Escopo de Variáveis
