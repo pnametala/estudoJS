@@ -5,7 +5,7 @@ _O [JQuery](https://jquery.com/) é uma das bibliotecas mais importantes (provav
 * [O que é uma biblioteca?](#o-que-é-uma-biblioteca)
 * [O JQuery](#o-jquery)
 * [Por que usar?](#por-que-usar)
-* [Por que não  usar?](#por-que-não-usar)
+* [Por que não usar?](#por-que-não-usar)
 * [Outras bibliotecas interessantes](#outras-bibliotecas-interessantes)
 
 #### O que é uma biblioteca?
@@ -32,8 +32,17 @@ _Ao longo de todos esses anos, vimos nascer milhões (sem o exagero dos números
 
 _A premissa na maioria dos casos é a mesma: "Não vamos reinventar a roda!". Embora eu concorde com esta afirmação, copiar e colar uma solução não te faz entender o problema. Quanto mais passamos a fazer copy/paste da internet, menos estamos contribuindo para nosso próprio desenvolvimento e exercitando nossa capacidade de desenhar possíveis soluções para nosso problema_
 
+_Além disso, temos os desenvolvedores que, para fazer um simples hide/show em elementos na tela, acabam incluindo em sua aplicação toda uma biblioteca apenas para tal_
+
+_Mesmo já sabendo JQuery, talvez seja legal dar uma olhada [aqui](http://youmightnotneedjquery.com/)
+
 #### Outras bibliotecas interessantes
 
-_Winter is coming..._
+* [MomentJS](http://momentjs.com/) - Biblioteca para manipulação de datas
+* [UnderscoreJS](http://underscorejs.org/) - Biblioteca para auxilio de programação funcional
+* [Highcharts](http://www.highcharts.com/) - Biblioteca para construção de gráficos
+* [CodeMirror](http://codemirror.net/) - Biblioteca para editor de texto online
+* [Modernizr](http://modernizr.com/) - Biblioteca para detectar implementações nativas de HTML5 e CCS3
+* [Polymer](https://www.polymer-project.org/1.0/) - Biblioteca para criação de web components 
 
 
